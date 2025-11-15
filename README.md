@@ -78,22 +78,35 @@ This confirms referential integrity across all operational and commercial tables
 ## 📊 Pipeline Proof (Phase 2 Output)
 
 A row-count validation chart is saved at:
-
 ```
 docs/pipeline_row_counts.png
 ```
-
 This provides a visual verification that all production tables populated successfully.
 
 ---
 
-## 📈 Next Steps (Phase 3+)
+### Phase 3 – SQL Cleaning, Deduplication, and Integrity
 
-- BI models & star-schema views  
-- Revenue analysis (YTD/MoM)  
-- Delay cause analytics  
-- Loyalty cohort analysis  
-- Tableau dashboard buildout  
+Phase 3 focused on **database-level quality**:
+
+- Standardized key fields:
+  - Upper-cased airline and airport codes
+  - Trimmed names and normalized emails
+  - Normalized BTS carrier/airport codes and numeric delay fields
+- Removed or prevented duplicates:
+  - Unique IATA/ICAO per airport and airline
+  - Unique passenger email
+  - At most one loyalty account per passenger
+  - One `(passenger_id, flight_id)` booking pair
+- Hardened integrity with:
+  - Additional `NOT NULL`, `UNIQUE`, `CHECK`, and `FOREIGN KEY` constraints
+  - Performance indexes for BI-style queries on flights, bookings, payments, and BTS data
+- Validated the cleaned data via `sql/05_validations.sql` and
+  `notebooks/02_data_quality_checks.ipynb`, including:
+  - Row counts per table
+  - Foreign key health (all 0 missing)
+  - Key uniqueness checks
+  - Summary “problem counts” visualization in `docs/pipeline_quality_checks.png`
 
 ---
 
