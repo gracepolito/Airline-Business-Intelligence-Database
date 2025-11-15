@@ -1,5 +1,27 @@
-.DS_Store
-.venv/
+# Python
 __pycache__/
-.ipynb_checkpoints/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
 .env
+.venv/
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.DS_Store
+
+# Data (keep only small/cleaned examples if desired)
+data/*.zip
+data/raw/
+data/*.csv
+
+# But keep key small inputs if you want:
+!data/openflights_airports.csv
+!data/openflights_airlines.csv
+!data/bts_cleaned.csv
+
+# Notebooks checkpoints
+notebooks/.ipynb_checkpoints/
