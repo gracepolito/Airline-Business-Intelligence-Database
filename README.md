@@ -110,6 +110,105 @@ Phase 3 focused on **database-level quality**:
 
 ---
 
+## 📈 Phase 4 – Analytical Query Development & Testing
+
+Phase 4 delivered the **full analytical layer** of the Airline BI Database.  
+This included 15 advanced SQL queries, performance validation, recursive route analysis, and visual analytics artifacts.
+
+### 🔍 Core Deliverables
+- New notebook:  
+  `notebooks/03_analytics_queries.ipynb`
+  - SQLAlchemy engine + reusable `run_sql()` helper
+  - Organized sections for CTEs, window functions, recursive queries, and aggregations  
+  - Embedded charts generated with `matplotlib`
+
+- Backfill script:
+  - `etl/backfill_routes_aircraft_changes.py`  
+  - Automatically populates:
+    - `routes` (derived from flights)
+    - `aircraft` (synthetic fleet per airline)
+    - Ensures recursive network queries function correctly
+
+- All analytical results exported to documentation:
+  - `docs/phase_4_query_catalog.md` — **full business question mapping**
+  - `docs/phase_4_notes.md` — **technical write-up**
+  - `docs/phase_4_analytics.png` — **visual proof charts**
+
+---
+
+### 📊 15 Advanced SQL Queries Implemented
+
+#### **CTE Queries**
+1. **Busiest airports** (arrivals + departures)  
+2. **Airline on-time performance** (BTS performance data)  
+3. **Monthly passenger counts** (synthetic bookings)  
+4. **Loyalty tier transitions** (current vs earned tier)  
+5. **Revenue by fare class** (bookings + payments)
+
+#### **Window Functions**
+6. Airline **delay ranking**  
+7. **Running monthly revenue** totals  
+8. **Percent of flights delayed** by month  
+9. **Customer lifetime value (CLV)**  
+10. **Dense-rank** longest routes by distance
+
+#### **Recursive Queries**
+11. **Airport connectivity graph** from busiest hub  
+12. **Multi-hop route paths** (up to 3 hops)
+
+#### **Complex Joins & Aggregations**
+13. **Payment success rate** by channel  
+14. **Worst-performing routes** (delay + cancellation blend)  
+15. **Top 5% loyalty members** by lifetime miles
+
+All queries were executed, validated, and captured with real output samples inside the query catalog.
+
+---
+
+### ⚡ Performance Testing
+
+Each query was analyzed for execution performance using:
+
+- `EXPLAIN` / `EXPLAIN ANALYZE`
+- Validation of index utilization  
+- Runtime measurement and improvement where needed  
+- Confirmation that synthetic indexes from Phase 3 effectively support BI workloads:
+  - `flights(flight_date, airline_id)`
+  - `bookings(booking_date)`
+  - `payments(paid_at)`
+  - `flight_performance(airport_iata)`
+  - FK indexes on all join columns
+
+Complex queries—including recursive CTEs—ran efficiently on the populated dataset.
+
+---
+
+### 📉 Visual Analytics (Phase 4 Outputs)
+
+Generated charts exported to:  `docs/phase_4_analytics.png` 
+
+
+Includes:
+- **Flights by Status**
+- **Revenue by Fare Class**
+- **Flight Delay Distribution**
+
+These figures serve as proof of analytics execution and final BI readiness.
+
+---
+
+### ✅ Phase 4 Outcome
+
+Phase 4 completes the analytical layer of the project, providing:
+
+- Query-ready analytical SQL library  
+- Validated BI metrics across operations, loyalty, demand, and revenue  
+- Ready-to-use network connectivity and route structure insights  
+- Documentation and visual artifacts for Phase 5 dashboarding
+
+This prepares the dataset for downstream tools such as Tableau, Power BI, or Metabase.
+
+---
 
 ## Author
 Grace Polito — Eastern University MSDS, DTSC 691 Capstone

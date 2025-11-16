@@ -1,0 +1,93 @@
+"table_schema","table_name","column_name","data_type","is_nullable","character_maximum_length","column_default","ordinal_position"
+"airline","aircraft","aircraft_id","bigint","NO",NULL,"nextval('airline.aircraft_aircraft_id_seq'::regclass)",1
+"airline","aircraft","manufacturer","text","YES",NULL,NULL,2
+"airline","aircraft","model","text","NO",NULL,NULL,3
+"airline","aircraft","seat_capacity","integer","NO",NULL,NULL,4
+"airline","aircraft","tail_number","text","YES",NULL,NULL,5
+"airline","airlines","airline_id","bigint","NO",NULL,"nextval('airline.airlines_airline_id_seq'::regclass)",1
+"airline","airlines","name","text","NO",NULL,NULL,2
+"airline","airlines","iata_code","character varying","YES",3,NULL,3
+"airline","airlines","icao_code","character varying","YES",3,NULL,4
+"airline","airlines","country","text","YES",NULL,NULL,5
+"airline","airports","airport_id","bigint","NO",NULL,"nextval('airline.airports_airport_id_seq'::regclass)",1
+"airline","airports","iata_code","character varying","YES",3,NULL,2
+"airline","airports","icao_code","character varying","YES",4,NULL,3
+"airline","airports","name","text","NO",NULL,NULL,4
+"airline","airports","city","text","YES",NULL,NULL,5
+"airline","airports","country","text","YES",NULL,NULL,6
+"airline","airports","latitude","numeric","YES",NULL,NULL,7
+"airline","airports","longitude","numeric","YES",NULL,NULL,8
+"airline","airports","timezone","text","YES",NULL,NULL,9
+"airline","bookings","booking_id","bigint","NO",NULL,"nextval('airline.bookings_booking_id_seq'::regclass)",1
+"airline","bookings","passenger_id","bigint","NO",NULL,NULL,2
+"airline","bookings","flight_id","bigint","YES",NULL,NULL,3
+"airline","bookings","booking_date","timestamp without time zone","NO",NULL,NULL,4
+"airline","bookings","fare_class","text","YES",NULL,NULL,5
+"airline","bookings","base_price_usd","numeric","YES",NULL,NULL,6
+"airline","bookings","booking_channel","text","YES",NULL,NULL,7
+"airline","flight_changes","change_id","bigint","NO",NULL,"nextval('airline.flight_changes_change_id_seq'::regclass)",1
+"airline","flight_changes","flight_id","bigint","NO",NULL,NULL,2
+"airline","flight_changes","old_aircraft_id","bigint","YES",NULL,NULL,3
+"airline","flight_changes","new_aircraft_id","bigint","YES",NULL,NULL,4
+"airline","flight_changes","reason","text","YES",NULL,NULL,5
+"airline","flight_changes","changed_at","timestamp without time zone","NO",NULL,"now()",6
+"airline","flight_performance","snapshot_id","text","NO",NULL,NULL,1
+"airline","flight_performance","year","integer","NO",NULL,NULL,2
+"airline","flight_performance","month","integer","NO",NULL,NULL,3
+"airline","flight_performance","airline_iata","character varying","NO",5,NULL,4
+"airline","flight_performance","airport_iata","character varying","NO",5,NULL,5
+"airline","flight_performance","arrivals","integer","YES",NULL,NULL,6
+"airline","flight_performance","arrivals_delayed_15min","integer","YES",NULL,NULL,7
+"airline","flight_performance","arr_cancelled","integer","YES",NULL,NULL,8
+"airline","flight_performance","arr_diverted","integer","YES",NULL,NULL,9
+"airline","flight_performance","total_arrival_delay_min","double precision","YES",NULL,NULL,10
+"airline","flight_performance","carrier_delay","double precision","YES",NULL,NULL,11
+"airline","flight_performance","weather_delay","double precision","YES",NULL,NULL,12
+"airline","flight_performance","nas_delay","double precision","YES",NULL,NULL,13
+"airline","flight_performance","security_delay","double precision","YES",NULL,NULL,14
+"airline","flight_performance","late_aircraft_delay","double precision","YES",NULL,NULL,15
+"airline","flights","flight_id","bigint","NO",NULL,"nextval('airline.flights_flight_id_seq'::regclass)",1
+"airline","flights","airline_id","bigint","NO",NULL,NULL,2
+"airline","flights","aircraft_id","bigint","YES",NULL,NULL,3
+"airline","flights","route_id","bigint","YES",NULL,NULL,4
+"airline","flights","origin_airport_id","bigint","NO",NULL,NULL,5
+"airline","flights","destination_airport_id","bigint","NO",NULL,NULL,6
+"airline","flights","flight_number","text","NO",NULL,NULL,7
+"airline","flights","flight_date","date","NO",NULL,NULL,8
+"airline","flights","scheduled_departure_utc","timestamp without time zone","NO",NULL,NULL,9
+"airline","flights","scheduled_arrival_utc","timestamp without time zone","NO",NULL,NULL,10
+"airline","flights","actual_departure_utc","timestamp without time zone","YES",NULL,NULL,11
+"airline","flights","actual_arrival_utc","timestamp without time zone","YES",NULL,NULL,12
+"airline","flights","delay_minutes","integer","YES",NULL,NULL,13
+"airline","flights","delay_cause","text","YES",NULL,NULL,14
+"airline","flights","status","USER-DEFINED","NO",NULL,"'Scheduled'::airline.flight_status",15
+"airline","loyalty_accounts","loyalty_id","bigint","NO",NULL,"nextval('airline.loyalty_accounts_loyalty_id_seq'::regclass)",1
+"airline","loyalty_accounts","passenger_id","bigint","NO",NULL,NULL,2
+"airline","loyalty_accounts","tier","USER-DEFINED","NO",NULL,"'Basic'::airline.loyalty_tier",3
+"airline","loyalty_accounts","miles_balance","integer","NO",NULL,"0",4
+"airline","loyalty_accounts","enrolled_at","timestamp without time zone","NO",NULL,"now()",5
+"airline","miles_transactions","miles_txn_id","bigint","NO",NULL,"nextval('airline.miles_transactions_miles_txn_id_seq'::regclass)",1
+"airline","miles_transactions","loyalty_id","bigint","NO",NULL,NULL,2
+"airline","miles_transactions","flight_id","bigint","YES",NULL,NULL,3
+"airline","miles_transactions","txn_type","USER-DEFINED","NO",NULL,NULL,4
+"airline","miles_transactions","miles_delta","integer","NO",NULL,NULL,5
+"airline","miles_transactions","posted_at","timestamp without time zone","NO",NULL,"now()",6
+"airline","passengers","passenger_id","bigint","NO",NULL,"nextval('airline.passengers_passenger_id_seq'::regclass)",1
+"airline","passengers","first_name","text","NO",NULL,NULL,2
+"airline","passengers","last_name","text","NO",NULL,NULL,3
+"airline","passengers","email","text","YES",NULL,NULL,4
+"airline","passengers","gender","text","YES",NULL,NULL,5
+"airline","passengers","age_group","text","YES",NULL,NULL,6
+"airline","passengers","state_or_country","text","YES",NULL,NULL,7
+"airline","passengers","created_at","timestamp without time zone","NO",NULL,"now()",8
+"airline","payments","payment_id","bigint","NO",NULL,"nextval('airline.payments_payment_id_seq'::regclass)",1
+"airline","payments","booking_id","bigint","NO",NULL,NULL,2
+"airline","payments","amount_usd","numeric","NO",NULL,NULL,3
+"airline","payments","method","USER-DEFINED","NO",NULL,NULL,4
+"airline","payments","status","USER-DEFINED","NO",NULL,NULL,5
+"airline","payments","paid_at","timestamp without time zone","NO",NULL,NULL,6
+"airline","routes","route_id","bigint","NO",NULL,"nextval('airline.routes_route_id_seq'::regclass)",1
+"airline","routes","airline_id","bigint","NO",NULL,NULL,2
+"airline","routes","origin_airport_id","bigint","NO",NULL,NULL,3
+"airline","routes","destination_airport_id","bigint","NO",NULL,NULL,4
+"airline","routes","distance_nm","integer","YES",NULL,NULL,5
