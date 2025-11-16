@@ -209,6 +209,119 @@ Phase 4 completes the analytical layer of the project, providing:
 This prepares the dataset for downstream tools such as Tableau, Power BI, or Metabase.
 
 ---
+## 📊 Phase 5 – Python Integration & Analytics
+
+Phase 5 extends the BI pipeline into Python, transforming the cleaned and validated PostgreSQL warehouse into a full analytical environment. Using **SQLAlchemy, Pandas, Matplotlib, and Plotly**, this phase delivers operational, commercial, and loyalty insights backed by reusable SQL-to-Python query functions.
+
+---
+
+### 🔧 Core Deliverables
+
+#### **New Analytics Notebook**
+`notebooks/04_python_analytics.ipynb`  
+Includes:
+- SQLAlchemy engine + environment loader  
+- Reusable helpers (`get_engine()`, `get_df()`)  
+- Centralized Matplotlib theme (Airline BI palette)  
+- Optional Plotly interactive support  
+- Organized Python analysis sections matching Phase 4 SQL logic  
+
+This notebook acts as the primary Python BI interface for the project.
+
+---
+
+### 📊 SQL-to-Python Analytics Layer
+
+Reusable Python-wrapped query functions were created for every major business domain:
+
+- **Busiest airports**  
+- **Airline punctuality & delay performance**  
+- **Monthly revenue trends**  
+- **Revenue by fare class**  
+- **Payment success rate by channel**  
+- **Customer lifetime value (CLV)**  
+- **Top 5% loyalty customers**  
+- **Worst-performing routes**  
+- **Monthly percent of flights delayed**
+
+These functions return Pandas DataFrames for immediate exploration, visualization, and BI storytelling.
+
+---
+
+### 📈 Business Insights & EDA
+
+Phase 5 adds full exploratory data analysis across:
+
+#### **Operations**
+- Monthly delay performance  
+- Delay distribution (histogram)  
+- Airline reliability rankings  
+
+#### **Network**
+- Busiest airport identification  
+- Worst routes by delay and cancellation  
+- Route flow visualization (Plotly Sankey)  
+- Airport geospatial scatterplot (lat/long)
+
+#### **Commercial**
+- Revenue seasonality  
+- Fare-class revenue mix  
+- Payment funnel performance (success rate by channel)
+
+#### **Loyalty**
+- CLV distribution + percentiles  
+- Top-customer concentration  
+- Cumulative revenue curve (Lorenz-style)
+
+All analyses include narrative interpretation inside the notebook.
+
+---
+
+### 🖼️ Visualization Gallery (Saved to `docs/`)
+
+Phase 5 exports a complete suite of BI-ready visualizations:
+
+- `Monthly_Revenue_Trend.png`  
+- `Monthly_Revenue_Trend_Interactive.png`  
+- `Revenue_by_Fare_Class.png`  
+- `Flights_Delayed_by_Month.png`  
+- `Average_Arrival_Delay_by_Airline.png`  
+- `Distribution_of_Flight_Delay.png`  
+- `Payment_Success_Rate_by_Channel.png`  
+- `Customer_Lifetime.png`  
+- `Top_10_Customers.png`  
+
+Additional network and spatial visuals:
+- `Airport_Map.png`  
+- `Route_Sankey.png`
+
+These figures support the final report and Phase 6 presentation.
+
+---
+
+### 📝 Documentation Added
+
+- `docs/phase_5_notes.md` — full write-up of Python analytics, insights, and visual outputs  
+- Updated README with Phase 5 section  
+- Updated `CHANGELOG.md` with Phase 5 completion entry  
+
+---
+
+### 🗒️ Note on Future-Dated Records
+
+Some synthetic data includes schedules and revenue entries extending into **2025–2026**.  
+This behavior comes from the random date generator used in Phase 2, which creates future operational schedules—reflecting real airline planning systems where future timetables exist months or years ahead.  
+These records are valid and fully compatible with revenue, CLV, and delay trend analytics.
+
+---
+
+### ✅ Phase 5 Outcome
+
+Phase 5 delivers a complete **Python-first BI analytics environment**, integrating SQL data with visual and statistical exploration across operations, network, revenue, and loyalty.  
+This prepares the project for Phase 6 final deliverables, including the PDF report and recorded presentation.
+
+---
+
 
 ## Author
 Grace Polito — Eastern University MSDS, DTSC 691 Capstone

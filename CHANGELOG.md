@@ -79,3 +79,52 @@
 
 - All analytical outputs verified against live query results.
 - Phase 4 closes with a complete BI-ready SQL analytics layer for use in Phase 5 dashboards and materialized views.
+
+## Phase 5 – Python Integration & Analytics (2025-11-17)
+### Completed
+
+- Added Python analytics notebook:
+  - `notebooks/04_python_analytics.ipynb`
+  - includes SQLAlchemy connection helpers, reusable query functions, plotting defaults, and BI-ready analysis sections.
+
+- Implemented **database helper utilities**:
+  - `get_engine()` for PostgreSQL connection using `.env`  
+  - `get_df()` wrapper for safe SQL execution and DataFrame retrieval  
+  - centralized visualization styling (Airline BI theme: navy palette, bold titles, thicker axes)
+
+- Added **SQL-to-Python analytics layer**:
+  - data-access functions for busiest airports, airline punctuality, monthly revenue, fare-class revenue mix, payment channel success, CLV distributions, worst routes, and monthly delay performance.
+  - all queries aligned with Phase 4 SQL logic and validated against the warehouse.
+
+- Completed **Python-based business analysis**:
+  - operational KPIs (delay distribution, airline reliability, monthly delay %)
+  - network insights (busiest airports, problematic routes)
+  - revenue trends (monthly revenue, fare-class contribution)
+  - loyalty economics (CLV, high-value customer concentration)
+
+- Generated **9 final BI visualizations**:
+  - `Monthly_Revenue_Trend.png`
+  - `Monthly_Revenue_Trend_Interactive.png`
+  - `Revenue_by_Fare_Class.png`
+  - `Flights_Delayed_by_Month.png`
+  - `Average_Arrival_Delay_by_Airline.png`
+  - `Distribution_of_Flight_Delay.png`
+  - `Payment_Success_Rate_by_Channel.png`
+  - `Customer_Lifetime.png`
+  - `Top_10_Customers.png`
+  - all exported to `docs/` for use in the final report and presentation.
+
+- Added advanced network visualizations:
+  - airport coordinate scatterplot (lat/long)
+  - origin–destination Sankey diagram (Plotly graph_objects)
+  - supplemental connectivity representation for route flows
+
+- Created new documentation:
+  - `docs/phase_5_notes.md` (executive summary, methodology, findings, visualization index, and explanation of future-dated synthetic data)
+
+- Updated repo documentation:
+  - `README.md` updated with Phase 5 overview, links to notebooks, and visualization gallery
+  - `CHANGELOG.md` updated with this entry
+
+### Notes
+- Dataset includes valid future dates (2025–2026). Originates from Phase 2 synthetic generator and reflects real-world airline planning data where schedules exist months in advance. Data is fully usable for analysis and BI demonstrations.
