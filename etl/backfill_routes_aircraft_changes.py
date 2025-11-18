@@ -8,7 +8,7 @@ This script:
   4) Assigns aircraft_id to flights
   5) Creates synthetic airline.flight_changes records for a subset of flights
 
-Schema assumptions (from your DB):
+Schema assumptions (from the DB):
 
   airline.flights
     flight_id               bigint PK
