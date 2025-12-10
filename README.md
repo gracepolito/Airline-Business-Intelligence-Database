@@ -346,6 +346,7 @@ The following files represent the official submission package for Phase 6:
 
 - **Airline BI Database - Presentation.mp4**  
   A polished 20 minute on-camera presentation, edited in DaVinci Resolve and synchronized with the slide deck.
+    🔗 **YouTube (Unlisted):** https://youtu.be/aWBiJAppYmY
 
 Additional supporting files included in the repository:
 
