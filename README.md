@@ -322,6 +322,41 @@ This prepares the project for Phase 6 final deliverables, including the PDF repo
 
 ---
 
+## 🧩 Phase 6 Summary — Final Deliverables & Presentation
+
+Phase 6 compiles the entire project into a polished, submission-ready capstone package.  
+This includes:
+
+- Completing a 21-slide presentation summarizing all phases  
+- Writing a full narrative script aligned to the deck  
+- Recording an on-camera walkthrough and editing it in DaVinci Resolve  
+- Exporting all documentation, SQL, ETL, and notebook artifacts
+
+---
+
+## 🎥 Final Capstone Deliverables
+
+The following files represent the official submission package for Phase 6:
+
+- **Airline BI Database - Presentation Slides.pdf**  
+  Full 21-slide deck covering schema design, ETL, SQL analytics, Python visualizations, business insights, and future enhancements.
+
+- **Airline BI Database - Presentation Script.pdf**  
+  Complete written narration aligned to each slide, used for the recorded presentation.
+
+- **Airline BI Database - Presentation.mp4**  
+  A polished 20 minute on-camera presentation, edited in DaVinci Resolve and synchronized with the slide deck.
+
+Additional supporting files included in the repository:
+
+- Python scrpits (`notebooks/nb_*.pdf`)  
+- SQL and ETL scripts (`sql/`, `etl/`)  
+- BI visualizations (`docs/*.png`)  
+- Phase notes (`phase_1_notes.md` → `phase_6_notes.md`)  
+
+These deliverables collectively demonstrate the end-to-end construction of the Airline Business Intelligence Database.
+
+---
 
 ## Author
 Grace Polito — Eastern University MSDS, DTSC 691 Capstone
